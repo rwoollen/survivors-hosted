@@ -1,0 +1,97 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Josefin Sans'
+}
+
+.return-home-wrapper{
+    display:none;
+    position: absolute;
+    left: 2%;
+    top: 2%;
+}
+
+.btn-return{
+    background-color: transparent;
+    color: #4d90fe;
+}
+
+.form-wrapper {
+    width: 100%;
+    height: 100vh;
+    background-image:url(images/introsection.jpeg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size:cover;
+    display: -webkit-box;      
+    display: -moz-box;        
+    display: -ms-flexbox;      
+    display: -webkit-flex;    
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction:column;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    color: black;
+}
+
+.join-intro-text {
+    width: 70%;
+    color: black;
+}
+
+#inputEmail1{
+    width: 300px;
+    border: 2px solid #9bd130;
+}
+
+.btn-join {
+    background-color: rgba(255,255,255,.4);
+    border: 2px solid red;
+    color: red;
+    width: 125px;
+    height: 50px;
+}
+
+@media (min-width: 768px){
+    
+    body {
+        font-size: 20px;
+    }
+
+    .return-home-wrapper{
+        display:block;
+        position: absolute;
+        left: 2%;
+        top: 2%;
+    }
+
+    .form-wrapper {
+        display: -webkit-box;      
+        display: -moz-box;        
+        display: -ms-flexbox;      
+        display: -webkit-flex;    
+        display: flex;
+        -webkit-flex-direction: column;
+        flex-direction:column;
+        -webkit-align-items: center;
+        align-items: center;
+        /*-webkit-justify-content: center;
+        justify-content: center;*/
+    }
+
+    .join-intro-text {
+        margin-top: 10%;
+        width: 50%;
+        color: black;
+    }
+
+    .btn-return{
+        display:none;
+    }
+}
