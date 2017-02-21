@@ -7,7 +7,7 @@ var userEmailObject;
 $("#join-submit").on("click", function(){
     // userEmailObject = $("#inputEmail1").val();
     // firebaseEmail.push(userEmailObject);
-    alert("Thank you!");
+    // alert("Thank you!");
 });
 
 });
