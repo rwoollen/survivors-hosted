@@ -54,8 +54,8 @@ function fadeThisOut(element) {
 function initAutocomplete() {
   map = new google.maps.Map(document.getElementById('googleMap'), 
   {
-    center: { lat: 37.734972, lng: -122.431297 },
-    zoom: 12,
+    center: { lat: 38.732805, lng: 38.732805 },
+    zoom: 5,
     styles: [
       {
          "featureType": "administrative",
