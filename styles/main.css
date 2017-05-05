@@ -623,6 +623,12 @@ body{
     font-family: 'Lobster',cursive;
 }
 
+#scrollabletextbox {
+    width: 60%;
+    height: 100vh;
+    margin-bottom: 10px;
+}
+
 @media (max-width: 700px) {
    #footer2{
        text-align: left;
