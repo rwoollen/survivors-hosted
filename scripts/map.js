@@ -1,5 +1,5 @@
 //FIREBASE LINK
-var firebaseRef = new Firebase("https://mapmain.firebaseio.com/");
+// var firebaseRef = new Firebase("https://survivorsio-5342f.firebaseio.com/");
 
 //Create object for firebase
 var userObject = {};
@@ -15,7 +15,7 @@ var map;
 var markers = [];
 //Function to send object to firebase
 function post() {
-  firebaseRef.push(userObject);//firebaseRef.push
+//  firebaseRef.push(userObject);//firebaseRef.push
   userObject = {};
   document.getElementById("resetForm").reset();
 }
@@ -52,7 +52,7 @@ function fadeThisOut(element) {
 
 /* SEARCH BOX + MAP*/
 function initAutocomplete() {
-  map = new google.maps.Map(document.getElementById('googleMap'), 
+  map = new google.maps.Map(document.getElementById('googleMap'),
   {
     center: { lat: 38.732805, lng: -98.228487 },
     zoom: 5,
@@ -61,101 +61,101 @@ function initAutocomplete() {
          "featureType": "administrative",
           "elementType": "labels.text.fill",
           "stylers": [{ "color": "#4b4b4b" }]
-      }, 
+      },
       {
         "featureType": "administrative.province",
           "elementType": "geometry",
           "stylers": [{ "saturation": "7" }]
-      }, 
+      },
       {
           "featureType": "administrative.province",
           "elementType": "geometry.fill",
           "stylers": [
-            { "visibility": "on" }, 
-            { "saturation": "17" }, 
+            { "visibility": "on" },
+            { "saturation": "17" },
             { "lightness": "20" }
           ]
-      }, 
+      },
       {
         "featureType": "landscape",
         "elementType": "all",
         "stylers": [{ "color": "#f2f2f2" }]
-      }, 
+      },
       {
         "featureType": "landscape.man_made",
         "elementType": "geometry.fill",
         "stylers": [{ "color": "#f2f2f2" }]
-      }, 
+      },
       {
         "featureType": "poi",
         "elementType": "all",
         "stylers": [{ "visibility": "off" }]
-      }, 
+      },
       {
         "featureType": "road",
         "elementType": "all",
         "stylers": [
-            { "saturation": -100 }, 
+            { "saturation": -100 },
             { "lightness": 45 }
           ]
-      }, 
+      },
       {
         "featureType": "road.highway",
         "elementType": "all",
         "stylers": [{ "visibility": "simplified" }]
-      }, 
+      },
       {
         "featureType": "road.highway",
         "elementType": "geometry.fill",
         "stylers": [{ "color": "#9fce48" }]
-      }, 
+      },
       {
         "featureType": "road.highway",
         "elementType": "geometry.stroke",
         "stylers": [{ "color": "#32879c" }]
-      }, 
+      },
       {
         "featureType": "road.highway",
         "elementType": "labels.text.fill",
         "stylers": [{ "invert_lightness": true }]
-      }, 
+      },
       {
         "featureType": "road.highway",
         "elementType": "labels.text.stroke",
         "stylers": [
-            { "color": "#ffffff" }, 
-            { "visibility": "off" }, 
+            { "color": "#ffffff" },
+            { "visibility": "off" },
             { "weight": "0.57" }
           ]
-      }, 
+      },
       {
         "featureType": "road.arterial",
         "elementType": "labels.icon",
         "stylers": [{ "visibility": "off" }]
-      }, 
+      },
       {
         "featureType": "transit",
         "elementType": "all",
         "stylers": [{ "visibility": "off" }]
-      }, 
+      },
       {
         "featureType": "water",
         "elementType": "all",
         "stylers": [
-            { "color": "#46bcec" }, 
+            { "color": "#46bcec" },
             { "visibility": "on" }
         ]
-      }, 
+      },
       {
         "featureType": "water",
         "elementType": "geometry.fill",
         "stylers": [{ "color": "#6bccdd" }]
-      }, 
+      },
       {
         "featureType": "water",
         "elementType": "labels.text.fill",
         "stylers": [{ "color": "#ffffff" }]
-      }, 
+      },
       {
         "featureType": "water",
         "elementType": "labels.text.stroke",
@@ -221,7 +221,7 @@ function initAutocomplete() {
           "<h3>Report a sexual assault at this location?</h3>" +
           "<button type='button' class='btn btn-default btn-clicked' id='fireBase-no'>No</button>" +
           "<button type='button' class='btn btn-default btn-clicked' id='fireBase-yes'>Yes</button>" +
-          "</div>"); // #pinDrop-window 
+          "</div>"); // #pinDrop-window
         questionWindow.open(map, marker);
         if (infoWindow.open()) {
           infoWindow.close();
@@ -254,7 +254,7 @@ function initAutocomplete() {
 
     map.fitBounds(bounds);
     // console.log(bounds);
-    
+
   }); //searchBox.addListener
 
   //Creating the if statement for the 'view only' map
@@ -276,7 +276,7 @@ function initAutocomplete() {
         "<h3>Report a sexual assault at this location?  </h3>" +
         "<button type='button' class='btn btn-default btn-clicked' id='fireBase-no'>No</button>" +
         "<button type='button' class='btn btn-default btn-clicked' id='fireBase-yes'>Yes</button>" +
-        "</div>"); // #pinDrop-window 
+        "</div>"); // #pinDrop-window
 
       //Call by:: questionWindow.open(map, marker);
       questionWindow.open(map, marker);
@@ -284,7 +284,7 @@ function initAutocomplete() {
         infoWindow.close();
       }
       $(".gm-style-iw").next("div").hide();
-      //ADD PINDROP OVERLAY 
+      //ADD PINDROP OVERLAY
       $("#pinDrop-window > #fireBase-yes").on("click", function () {
         userObject.userLocation = { lat: e.latLng.lat(), lng: e.latLng.lng() };
         geocodeThis();
@@ -302,7 +302,7 @@ function initAutocomplete() {
       $("#pinDrop-window > #fireBase-no").on("click", function () {
         questionWindow.close();
         marker.setVisible(false);
-        
+
       });
     } //if statement
   }
@@ -311,9 +311,8 @@ function initAutocomplete() {
 
   var infoWindow = new google.maps.InfoWindow();
 
-  //DROP A MARKER WHEN MAP IS CLICKED 
-  firebaseRef.on("child_added", function (snapshot, prevChildKey) {
-    
+  firebase.database().ref('/incidents/public').on("child_added", function (snapshot, prevChildKey) {
+
     // Get latitude and longitude from the cloud.
     var eventObject = snapshot.val();
     //console.log('eventObject', eventObject);
@@ -385,10 +384,10 @@ function setMapOnAll(map) {
 }
 
 //Add the number of assaults to the map in realtime
-firebaseRef.once('value', function(snapshot) { 
-    $("#circleNumberReported").append(snapshot.numChildren()); 
-  });
 
+firebase.database().ref('/incidents/public').once('value', function(snapshot) {
+    $("#circleNumberReported").append(snapshot.numChildren());
+  });
 
 // Removes the markers from the map, but keeps them in the array.
 function clearMarkers() {
@@ -399,4 +398,3 @@ function clearMarkers() {
 function showMarkers() {
   setMapOnAll(map);
 }
-

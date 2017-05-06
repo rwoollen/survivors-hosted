@@ -12,8 +12,16 @@
     <link rel='shortcut icon' href='styles/images/redStar.png' type='image/x-icon'/ >
 
     <!-- FIREBASE CDN -->
-    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script>
+      var config = {
+        apiKey: "AIzaSyC3DbgTHROrM5neJ_hjGf4VmjxzFd5S-90",
+        authDomain: "survivorsio-5342f.firebaseapp.com",
+        databaseURL: "https://survivorsio-5342f.firebaseio.com",
+      };
+      firebase.initializeApp(config);
+    </script>
+    
     <!-- JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 
