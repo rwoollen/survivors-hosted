@@ -1,6 +1,3 @@
-//FIREBASE LINK
-// var firebaseRef = new Firebase("https://survivorsio-5342f.firebaseio.com/");
-
 //Create object for firebase
 var userObject = {};
 
@@ -8,22 +5,26 @@ var userObject = {};
 var mapObject = {};
 
 //Moving through pages
-var current_fs, next_fs, previous_fs, userKey;
+var current_fs, next_fs, previous_fs, userKey, comment;
 
 var map;
 
 var markers = [];
 //Function to send object to firebase
 function post() {
-//  firebaseRef.push(userObject);//firebaseRef.push
+  var postRef = firebase.database().ref('/incidents/public').push(userObject);
+  userKey = postRef.key;
   userObject = {};
+  comment = $("#endComment").val();
   document.getElementById("resetForm").reset();
 }
 
 //Function to send object to firebase after final submit (with comment)
 function submitPost() {
-  userKey = "submitComment";
-  userObject[userKey] = $("#endComment").val();
+  var path = '/incidents/private/' + userKey;
+  var postRef = firebase.database().ref(path).update({submitComment: comment});
+  userKey = null;
+  comment = null;
 }
 
 //Function to geocode location
